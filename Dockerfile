@@ -1,9 +1,6 @@
 FROM poldracklab/fmriprep:1.3.2
 
-RUN conda install -y -q \
-        jupyter \
-        jupyterlab \
-    && sync && conda clean -tipsy && sync \
+RUN pip install --no-cache-dir notebook==5.* \
     && pip install --no-cache-dir -U git+https://github.com/oesteban/nibabel@enh/transforms#egg=nibabel \
     && rm -rf ~/.cache/pip/* \
     && sync
@@ -25,4 +22,4 @@ USER ${NB_USER}
 
 WORKDIR ${HOME}
 
-ENTRYPOINT "jupyter-notebook"
+ENTRYPOINT []
