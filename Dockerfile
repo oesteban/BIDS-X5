@@ -3,15 +3,13 @@ FROM poldracklab/fmriprep:1.3.2
 RUN conda install -y -q \
         jupyter \
         jupyterlab \
-        jupyter_contrib_nbextensions \
-        nbformat \
     && sync && conda clean -tipsy && sync \
     && pip install --no-cache-dir -U git+https://github.com/oesteban/nibabel@enh/transforms#egg=nibabel \
     && rm -rf ~/.cache/pip/* \
     && sync
 
 ENV NB_USER jovyan
-ENV NB_UID 1000
+ENV NB_UID 1001
 ENV HOME /home/${NB_USER}
 
 RUN adduser --disabled-password \
@@ -27,4 +25,4 @@ USER ${NB_USER}
 
 WORKDIR ${HOME}
 
-CMD ["jupyter-notebook"]
+ENTRYPOINT "jupyter-notebook"
