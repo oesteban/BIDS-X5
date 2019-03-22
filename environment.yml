@@ -4,7 +4,8 @@ channels:
   - conda-forge
 dependencies:
   - numpy
-  - git+https://github.com/oesteban/nibabel.git@enh/transforms#egg=nibabel
   - matplotlib
   - pandas
   - nipype
+  - pip:
+      - git+https://github.com/oesteban/nibabel.git@enh/transforms#egg=nibabel
