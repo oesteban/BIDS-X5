@@ -1,0 +1,10 @@
+
+name: example-environment
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - git+https://github.com/oesteban/nibabel.git@enh/transforms#egg=nibabel
+  - matplotlib
+  - pandas
+  - nipype
